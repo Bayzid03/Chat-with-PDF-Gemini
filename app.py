@@ -38,7 +38,7 @@ def get_vector_store(text_chunks):
     vector_store = FAISS.from_texts(text_chunks, embedding=embeddings)
     vector_store.save_local("faiss_index")
 
-
+# Function to create a conversational chain for question answering
 def get_conversational_chain():
 
     prompt_template = """
@@ -57,7 +57,7 @@ def get_conversational_chain():
     chain = load_qa_chain(model, chain_type="stuff", prompt=prompt)
 
     return chain
-
+# Function to handle user input and generate a response
 def user_input(user_question):
     embeddings = GoogleGenerativeAIEmbeddings(model = "models/embedding-001")
     
@@ -74,6 +74,7 @@ def user_input(user_question):
     print(response)
     st.write("Reply: ", response["output_text"])
 
+# Streamlit application to interact with PDF files and answer questions
 def main():
     st.set_page_config("Chat PDF")
     st.header("Chat with PDF using Gemini💁")
