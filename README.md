@@ -49,6 +49,7 @@ See [requirements.txt](requirements.txt).
 ## Notes
 
 - Your Google API key is required for embedding and LLM features.
+- - The FAISS index is saved locally as `faiss_index`.
 
 ---
 
